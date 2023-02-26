@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/styles/auth.styles.css">
+  <link rel="stylesheet" type="text/css" href="/styles/global.css">
+  <script>
+    function switchLogintype() {
+      const emailFormDisplay = document.getElementById("email-form").style.display;
+      document.getElementById("email-form").style.display = document.getElementById("login-form").style.display;
+      document.getElementById("login-form").style.display = emailFormDisplay;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="error-stack">
+    <% if(typeof errors !="undefined" ) { %>
+        <div class="error">
+          <%= errors %>
+        </div>
+    <% } %>
+  </div>
+  <div class="auth-container">
+    <h1>LOGIN</h1>
+    <form action="" method="post" id="email-form">
+      <div class="auth-content">
+        <div class="field-box">
+          <span>Email</span>
+          <% if(typeof body != "undefined") { %>
+            <input type="email" name="email" placeholder="Email" id="email" required value="<%= body.email %>">
+          <% } else { %>
+            <input type="email" name="email" placeholder="Email" id="email" required>
+          <% } %>
+        </div>
+        <div class="field-box">
+          <span>Password</span>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <a href="#" onclick="switchLogintype()">Or you can switch login type</a>
+        <input type="submit" value="Log in">
+        <p>Don&#39;t have an account? <a href="registration">Sign up</a></p>
+      </div>
+    </form>
+    <%- include("login-type-form") %>
+  </div>
+
+</body>
+
+</html>

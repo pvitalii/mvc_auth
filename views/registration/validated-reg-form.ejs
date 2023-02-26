@@ -1,0 +1,47 @@
+<form action="registration" method="post">
+  <div class="auth-content">
+    <div class="field-box">
+      <span>Email</span>
+      <input type="email" name="email" placeholder="Email" required value="<%= body.email %>">
+    </div>
+    <div class="field-box">
+      <span>Login</span>
+      <input type="text" name="login" placeholder="Login" required value="<%= body.login %>">
+    </div>
+    <div class="field-box">
+      <span>Real name</span>
+      <input type="text" name="real_name" placeholder="Real name" required value="<%= body.real_name %>">
+    </div>
+    <div class="field-box">
+      <span>Password</span>
+      <input type="password" name="password" placeholder="Password" required>
+    </div>
+    <div class="field-box">
+      <span>Birth date</span>
+      <input type="date" name="birth_date" required value="<%= body.birth_date %>">
+    </div>
+    <div class="field-box">
+      <span>Country</span>
+      <select name="countryId" required>
+        <% if(typeof countries !="undefined" ) countries.forEach((country)=> { %>
+          <option value="<%= country.id %>">
+            <%= country.name %>
+          </option>
+          <% }) %>
+          <option value="<%= body.country.id %>" selected hidden>
+            <%= body.country.name %>
+          </option>
+      </select>
+    </div>
+    <div class="checkbox-field-box">
+      <label>Agree with terms and conditions</label>
+      <% if(body.agree_with_terms_and_conditions = "on") { %>
+        <input type="checkbox" name="agree_with_terms_and_conditions" required checked>
+      <% } else { %>
+        <input type="checkbox" name="agree_with_terms_and_conditions" required>
+      <% } %>
+    </div>
+    <input type="submit" value="Sign up">
+    <p>Do you already have an account? <a href="login">Log in</a></p>
+  </div>
+</form>

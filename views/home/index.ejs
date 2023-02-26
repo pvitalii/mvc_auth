@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/styles/global.css">
+  <style>
+    .home-container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 25px;
+    }
+
+    span {
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="home-container">
+    <h1>Hello!</h1>
+    <div>
+      Email: <span>
+        <%= user.email %>
+      </span>
+    </div>
+    <div>
+      Name: <span>
+        <%= user.real_name %>
+      </span>
+    </div>
+    <h2><%= locals.user.password %></h2>
+    <a href="logout"><button>Logout</button></a>
+  </div>
+</body>
+
+</html>

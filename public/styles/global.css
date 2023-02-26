@@ -1,0 +1,20 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button,
+input,
+option,
+select {
+  font-size: 16px;
+  padding: 0.5em;
+}
+
+input[type='submit'],
+a,
+button {
+  cursor: pointer;
+}
